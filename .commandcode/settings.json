@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Shell(php artisan view:clear && php artisan config:clear && php -l resources/views/welcome.blade.php 2>&1; php artisan test --filter=Subscriber 2>&1 | head -n 50)",
+      "Shell(php artisan test 2>&1)",
+      "Shell(php artisan view:cache 2>&1; php -r \"require 'vendor/autoload.php'; \\$app=require 'bootstrap/app.php'; \\$k=\\$app->make(Illuminate\\Contracts\\Http\\Kernel::class); \\$r=Illuminate\\Http\\Request::create('/','GET'); try{\\$res=\\$k->handle(\\$r); echo \\$res->getStatusCode().PHP_EOL; echo substr(\\$res->getContent(),0,2000);}catch(Throwable \\$e){echo get_class(\\$e).': '.\\$e->getMessage().PHP_EOL.\\$e->getTraceAsString();}\" 2>&1)",
+      "Shell(php artisan route:list)",
+      "Shell(php artisan test --filter=test_the_application_returns_a_successful_response)",
+      "Shell(php artisan view:clear)",
+      "Shell(php artisan test)"
+    ],
+    "deny": [],
+    "defaultMode": "default"
+  }
+}
