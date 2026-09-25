@@ -87,6 +87,9 @@
         .spec { padding: 14px 15px 0 0; color: var(--paper-dim); font: 10px/1.4 monospace; letter-spacing: .1em; text-transform: uppercase; }
         .spec + .spec { padding-left: 15px; border-left: 1px solid var(--rule); }
         .spec strong { display: block; margin-top: 8px; color: var(--paper); font: 16px/1.1 Georgia, serif; letter-spacing: -.02em; text-transform: none; }
+        .manifesto { max-width: 540px; margin: 50px 0 0; padding: 20px 0 0 20px; border-top: 1px solid var(--rule); border-left: 2px solid var(--coral); }
+        .manifesto p { margin: 0; color: var(--paper); font: italic clamp(1.25rem, 2vw, 1.65rem)/1.22 Georgia, serif; letter-spacing: -.025em; }
+        .manifesto cite { display: block; margin-top: 13px; color: var(--paper-dim); font: 10px/1.4 monospace; letter-spacing: .12em; text-transform: uppercase; }
         footer { display: flex; justify-content: space-between; gap: 20px; padding: 19px 0 25px; border-top: 1px solid var(--rule); color: var(--paper-dim); font: 10px/1.5 monospace; letter-spacing: .1em; text-transform: uppercase; }
         footer span:last-child { color: var(--coral); }
         @keyframes rotate { to { transform: rotate(360deg); } }
@@ -114,6 +117,10 @@
                     <div class="spec">Systems<strong>Testing</strong></div>
                     <div class="spec">Launch<strong>Soon</strong></div>
                 </div>
+                <blockquote class="manifesto">
+                    <p>“Build the foundation right, and everything that follows has somewhere to stand.”</p>
+                    <cite>— The Structurelock principle</cite>
+                </blockquote>
             </section>
 
             <aside class="mechanism" aria-hidden="true">
