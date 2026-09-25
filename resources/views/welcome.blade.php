@@ -145,7 +145,7 @@
         <main>
             <section>
                 <p class="eyebrow">A new foundation is forming</p>
-                <h1>Something<br><em>solid</em><br>is coming.</h1>
+                <h1>Something<br><em>solid</em><br>is coming to cook</h1>
                 <p class="intro">Structurelock is being shaped with care. We are putting the final pieces in place and will be ready to welcome you soon.</p>
                 <div class="notify"><a href="mailto:hello@structurelock.ca?subject=Keep%20me%20posted">Keep me posted <span aria-hidden="true">&nbsp;↗</span></a></div>
             </section>
