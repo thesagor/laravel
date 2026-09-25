@@ -56,3 +56,16 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## FUture git deploy manually
+
+ssh -p 65002 u505271725@157.173.213.28
+
+cd /home/u505271725/domains/structurelock.com/laravel_app
+
+git pull --ff-only origin main
+composer install --no-dev --optimize-autoloader
+/opt/alt/php84/usr/bin/php artisan migrate --force
+/opt/alt/php84/usr/bin/php artisan optimize:clear
+/opt/alt/php84/usr/bin/php artisan optimize
+chmod -R ug+rw storage bootstrap/cache

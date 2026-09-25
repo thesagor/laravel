@@ -3,28 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Structurelock is coming soon.">
-    <title>Structurelock — Coming soon</title>
+    <meta name="description" content="Structurelock is building a more considered foundation for the web. Join the launch list.">
+    <title>Structurelock — In progress</title>
     <style>
         :root {
             color-scheme: dark;
-            --ink: #f4f0e8;
-            --muted: #9b9a92;
-            --line: rgba(244, 240, 232, .16);
-            --night: #101211;
-            --green: #b7f36b;
-            --orange: #ff714b;
+            --ink: #101315;
+            --paper: #e9e5d8;
+            --paper-dim: #a7a69d;
+            --rule: rgba(233, 229, 216, .17);
+            --lime: #c6f36a;
+            --coral: #ff795b;
+            --panel: #171b1c;
         }
 
         * { box-sizing: border-box; }
         html { min-height: 100%; }
         body {
-            min-height: 100vh;
+            min-height: 100svh;
             margin: 0;
             overflow-x: hidden;
-            background: var(--night);
-            color: var(--ink);
-            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: var(--ink);
+            color: var(--paper);
+            font-family: Arial, Helvetica, sans-serif;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -32,128 +33,94 @@
             position: fixed;
             inset: 0;
             z-index: -2;
-            background:
-                radial-gradient(circle at 15% 12%, rgba(183, 243, 107, .1), transparent 25rem),
-                radial-gradient(circle at 90% 86%, rgba(255, 113, 75, .09), transparent 28rem),
-                linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
-            background-size: auto, auto, 52px 52px, 52px 52px;
+            background: linear-gradient(rgba(233,229,216,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(233,229,216,.045) 1px, transparent 1px);
+            background-size: 42px 42px;
             content: "";
-            mask-image: linear-gradient(to bottom, black, transparent 92%);
+            mask-image: linear-gradient(to bottom, black, transparent 90%);
         }
 
-        .shell {
-            width: min(1180px, calc(100% - 48px));
-            min-height: 100vh;
-            margin: 0 auto;
-            display: grid;
-            grid-template-rows: auto 1fr auto;
+        body::after {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background: radial-gradient(circle at 78% 48%, rgba(198,243,106,.1), transparent 25rem), radial-gradient(circle at 10% 90%, rgba(255,121,91,.08), transparent 22rem);
+            content: "";
+            pointer-events: none;
         }
 
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 34px 0;
-            border-bottom: 1px solid var(--line);
-        }
-
-        .brand {
-            display: inline-flex;
-            align-items: center;
-            gap: 11px;
-            color: var(--ink);
-            font-size: 14px;
-            font-weight: 700;
-            letter-spacing: .16em;
-            text-transform: uppercase;
-        }
-
-        .brand-mark {
-            width: 26px;
-            height: 26px;
-            display: grid;
-            place-items: center;
-            border: 1px solid var(--green);
-            color: var(--green);
-            font-size: 12px;
-            line-height: 1;
-            transform: rotate(45deg);
-        }
-
+        .shell { width: min(1180px, calc(100% - 48px)); min-height: 100svh; margin: 0 auto; display: grid; grid-template-rows: auto 1fr auto; }
+        header { display: flex; align-items: center; justify-content: space-between; padding: 30px 0; border-bottom: 1px solid var(--rule); }
+        .brand { display: inline-flex; align-items: center; gap: 11px; color: var(--paper); font-size: 13px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
+        .brand-mark { width: 25px; height: 25px; display: grid; place-items: center; border: 1px solid var(--lime); color: var(--lime); font: 16px/1 Georgia, serif; transform: rotate(45deg); }
         .brand-mark span { transform: rotate(-45deg); }
-        .status { color: var(--muted); font: 11px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .11em; text-transform: uppercase; }
-        .status i { display: inline-block; width: 7px; height: 7px; margin-right: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 14px var(--green); }
+        .status { display: flex; align-items: center; gap: 9px; color: var(--paper-dim); font: 10px/1.4 monospace; letter-spacing: .14em; text-transform: uppercase; }
+        .status i { width: 7px; height: 7px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 15px var(--lime); }
 
-        main {
-            display: grid;
-            grid-template-columns: minmax(0, 1.22fr) minmax(280px, .78fr);
-            align-items: center;
-            gap: 10vw;
-            padding: 9vh 0 11vh;
-        }
+        main { display: grid; grid-template-columns: minmax(0, 1fr) minmax(360px, .85fr); align-items: center; gap: clamp(42px, 8vw, 120px); padding: clamp(65px, 11vh, 130px) 0 clamp(70px, 12vh, 140px); }
+        .eyebrow { display: flex; align-items: center; gap: 12px; margin: 0 0 28px; color: var(--lime); font: 11px/1.4 monospace; letter-spacing: .16em; text-transform: uppercase; }
+        .eyebrow::before { width: 34px; height: 1px; background: var(--lime); content: ""; }
+        h1 { max-width: 700px; margin: 0; font: 400 clamp(4rem, 9vw, 8.5rem)/.83 Georgia, "Times New Roman", serif; letter-spacing: -.08em; }
+        h1 em { color: var(--coral); font-style: italic; }
+        .intro { max-width: 470px; margin: 36px 0 0; color: var(--paper-dim); font-size: clamp(1rem, 1.5vw, 1.18rem); line-height: 1.65; }
+        .notify { margin-top: 38px; }
+        .notify a { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 19px; background: var(--lime); color: var(--ink); font-size: 12px; font-weight: 700; letter-spacing: .04em; text-decoration: none; transition: transform .2s ease, background .2s ease; }
+        .notify a:hover { background: #dcff98; transform: translateY(-3px); }
+        .notify a:focus-visible { outline: 2px solid var(--coral); outline-offset: 5px; }
 
-        .eyebrow { margin: 0 0 25px; color: var(--green); font: 12px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .14em; text-transform: uppercase; }
-        h1 { max-width: 720px; margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(4.3rem, 10vw, 9.5rem); font-weight: 400; letter-spacing: -.075em; line-height: .83; }
-        h1 em { color: var(--orange); font-style: italic; }
-        .intro { max-width: 480px; margin: 38px 0 0; color: var(--muted); font-size: clamp(1rem, 1.7vw, 1.22rem); line-height: 1.65; }
+        .mechanism { position: relative; min-height: 425px; display: grid; place-items: center; }
+        .mechanism::before, .mechanism::after { position: absolute; border: 1px solid var(--rule); border-radius: 50%; content: ""; transform: rotate(-24deg); }
+        .mechanism::before { width: 320px; height: 410px; }
+        .mechanism::after { width: 410px; height: 320px; transform: rotate(24deg); }
+        .plate { position: relative; width: 226px; height: 226px; display: grid; place-items: center; border: 1px solid var(--lime); border-radius: 50%; background: var(--panel); box-shadow: 0 0 75px rgba(198,243,106,.13), inset 0 0 50px rgba(198,243,106,.06); }
+        .plate::before { position: absolute; inset: 16px; border: 1px dashed rgba(198,243,106,.5); border-radius: 50%; animation: rotate 28s linear infinite; content: ""; }
+        .plate::after { position: absolute; width: 3px; height: 3px; top: 9px; left: calc(50% - 1px); border-radius: 50%; background: var(--coral); box-shadow: 0 0 13px var(--coral); content: ""; }
+        .keyhole { position: relative; z-index: 1; width: 44px; height: 66px; border: 2px solid var(--paper); border-radius: 25px 25px 7px 7px; }
+        .keyhole::after { position: absolute; width: 10px; height: 28px; bottom: -18px; left: 15px; background: var(--paper); content: ""; }
+        .marker { position: absolute; color: var(--paper-dim); font: 10px/1.3 monospace; letter-spacing: .12em; text-transform: uppercase; }
+        .marker::before { display: inline-block; width: 5px; height: 5px; margin: 0 8px 2px 0; border-radius: 50%; background: var(--lime); content: ""; }
+        .marker.one { top: 12%; right: 4%; }
+        .marker.two { bottom: 13%; left: 3%; }
+        .marker.three { right: 8%; bottom: 23%; color: var(--coral); }
+        .marker.three::before { background: var(--coral); }
 
-        .orbital { position: relative; min-height: 390px; display: grid; place-items: center; }
-        .orbital::before, .orbital::after { position: absolute; border: 1px solid var(--line); border-radius: 50%; content: ""; transform: rotate(-28deg); }
-        .orbital::before { width: 295px; height: 420px; }
-        .orbital::after { width: 420px; height: 295px; transform: rotate(28deg); }
-        .core { position: relative; width: 174px; height: 174px; display: grid; place-items: center; border: 1px solid var(--green); border-radius: 50%; background: rgba(183,243,107,.07); box-shadow: 0 0 70px rgba(183,243,107,.13), inset 0 0 35px rgba(183,243,107,.08); }
-        .core::before { position: absolute; inset: 15px; border: 1px dashed rgba(183,243,107,.42); border-radius: 50%; content: ""; animation: spin 24s linear infinite; }
-        .core-label { text-align: center; color: var(--green); font: 11px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .13em; text-transform: uppercase; }
-        .core-label strong { display: block; margin-top: 5px; color: var(--ink); font-family: Georgia, serif; font-size: 20px; font-weight: 400; letter-spacing: 0; text-transform: none; }
-        .satellite { position: absolute; width: 8px; height: 8px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 18px var(--orange); }
-        .satellite.one { top: 16%; right: 11%; }
-        .satellite.two { bottom: 15%; left: 9%; width: 5px; height: 5px; background: var(--green); box-shadow: 0 0 16px var(--green); }
-
-        .notify { display: flex; gap: 10px; max-width: 500px; margin-top: 42px; }
-        .notify a { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; padding: 0 20px; border: 1px solid var(--green); color: var(--night); background: var(--green); font-size: 13px; font-weight: 700; text-decoration: none; transition: transform .2s, background .2s; }
-        .notify a:hover, .notify a:focus-visible { background: #d1ff91; transform: translateY(-2px); }
-        .notify a:focus-visible { outline: 2px solid var(--orange); outline-offset: 4px; }
-
-        footer { display: flex; justify-content: space-between; gap: 20px; padding: 20px 0 26px; border-top: 1px solid var(--line); color: var(--muted); font: 11px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .08em; text-transform: uppercase; }
-        footer span:last-child { color: var(--orange); }
-
-        @keyframes spin { to { transform: rotate(360deg); } }
-        @media (prefers-reduced-motion: reduce) { .core::before { animation: none; } *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
-        @media (max-width: 760px) {
-            .shell { width: min(100% - 32px, 560px); }
-            header { padding: 24px 0; }
-            .status { display: none; }
-            main { display: block; padding: 13vh 0 9vh; }
-            h1 { font-size: clamp(4rem, 19vw, 7rem); }
-            .intro { margin-top: 30px; }
-            .orbital { min-height: 300px; margin: 50px 0 12px; transform: scale(.78); }
-            .notify a { width: 100%; }
-            footer { display: block; }
-            footer span { display: block; }
-            footer span + span { margin-top: 8px; }
-        }
+        .specs { display: grid; grid-template-columns: repeat(3, 1fr); max-width: 540px; margin-top: 66px; border-top: 1px solid var(--rule); }
+        .spec { padding: 14px 15px 0 0; color: var(--paper-dim); font: 10px/1.4 monospace; letter-spacing: .1em; text-transform: uppercase; }
+        .spec + .spec { padding-left: 15px; border-left: 1px solid var(--rule); }
+        .spec strong { display: block; margin-top: 8px; color: var(--paper); font: 16px/1.1 Georgia, serif; letter-spacing: -.02em; text-transform: none; }
+        footer { display: flex; justify-content: space-between; gap: 20px; padding: 19px 0 25px; border-top: 1px solid var(--rule); color: var(--paper-dim); font: 10px/1.5 monospace; letter-spacing: .1em; text-transform: uppercase; }
+        footer span:last-child { color: var(--coral); }
+        @keyframes rotate { to { transform: rotate(360deg); } }
+        @media (prefers-reduced-motion: reduce) { .plate::before { animation: none; } *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
+        @media (forced-colors: active) { .brand-mark, .plate, .plate::before, .mechanism::before, .mechanism::after { border-color: CanvasText; } .notify a { border: 1px solid ButtonText; } }
+        @media (max-width: 800px) { main { display: block; padding: 80px 0 70px; } .mechanism { min-height: 360px; margin-top: 65px; transform: scale(.86); } .specs { margin-top: 45px; } }
+        @media (max-width: 560px) { .shell { width: min(100% - 32px, 520px); } header { padding: 23px 0; } .status { display: none; } h1 { font-size: clamp(3.7rem, 18vw, 6rem); } .intro { margin-top: 29px; } .notify a { width: 100%; } .mechanism { min-height: 290px; margin: 42px -34px 0; transform: scale(.68); } .specs { grid-template-columns: 1fr; margin-top: 10px; } .spec, .spec + .spec { padding: 13px 0; border-left: 0; border-bottom: 1px solid var(--rule); } footer { display: block; } footer span { display: block; } footer span + span { margin-top: 8px; } }
     </style>
 </head>
 <body>
     <div class="shell">
         <header>
-            <div class="brand"><span class="brand-mark"><span>+</span></span> Structurelock</div>
-            <div class="status"><i></i> Building in public</div>
+            <div class="brand"><span class="brand-mark" aria-hidden="true"><span>+</span></span> Structurelock</div>
+            <div class="status"><i aria-hidden="true"></i> Build 01 / In progress</div>
         </header>
 
         <main>
             <section>
-                <p class="eyebrow">A new foundation is forming</p>
-                <h1>Something<br><em>solid</em><br>is coming to cook</h1>
-                <p class="intro">Structurelock is being shaped with care. We are putting the final pieces in place and will be ready to welcome you soon.</p>
+                <p class="eyebrow">A stronger foundation is forming</p>
+                <h1>A better<br><em>structure</em><br>is coming.</h1>
+                <p class="intro">Structurelock is taking shape behind the scenes: thoughtful tools, clear systems, and a little less friction for the people building the web.</p>
                 <div class="notify"><a href="mailto:hello@structurelock.ca?subject=Keep%20me%20posted">Keep me posted <span aria-hidden="true">&nbsp;↗</span></a></div>
+                <div class="specs" aria-label="Project progress">
+                    <div class="spec">Foundation<strong>Set</strong></div>
+                    <div class="spec">Systems<strong>Testing</strong></div>
+                    <div class="spec">Launch<strong>Soon</strong></div>
+                </div>
             </section>
 
-            <aside class="orbital" aria-label="Structurelock is under construction">
-                <span class="satellite one"></span>
-                <span class="satellite two"></span>
-                <div class="core"><div class="core-label">Status<strong>Almost ready</strong></div></div>
+            <aside class="mechanism" aria-hidden="true">
+                <span class="marker one">Foundation</span>
+                <span class="marker two">Testing</span>
+                <span class="marker three">Launch</span>
+                <div class="plate"><div class="keyhole"></div></div>
             </aside>
         </main>
 
