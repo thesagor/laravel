@@ -151,6 +151,15 @@
         .logos span { display: inline-flex; align-items: center; gap: 8px; }
         .logos i { width: 6px; height: 6px; background: var(--orange); display: inline-block; transform: rotate(45deg); }
 
+        .product-visual { position: relative; height: 172px; margin: -8px -8px 28px; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(135deg, #f2f4f4, #dce2e3); }
+        .product-visual::before { position: absolute; inset: 22px 34px; border: 1px solid rgba(31,36,40,.16); background: repeating-linear-gradient(0deg, transparent 0 27px, rgba(31,36,40,.08) 28px), repeating-linear-gradient(90deg, transparent 0 27px, rgba(31,36,40,.08) 28px); content: ""; }
+        .joist { position: absolute; left: 13%; right: 13%; top: 74px; height: 18px; border: 2px solid var(--ink); background: #899398; box-shadow: 0 8px 0 -4px rgba(31,36,40,.22); transform: skewY(-10deg); }
+        .joist::before, .joist::after { position: absolute; top: -20px; width: 13px; height: 56px; border: 2px solid var(--ink); background: var(--orange); content: ""; }
+        .joist::before { left: 28%; transform: skewY(10deg); }
+        .joist::after { right: 28%; transform: skewY(10deg); }
+        .product-badge { position: absolute; left: 15px; bottom: 13px; color: var(--ink); font: 10px/1.3 monospace; letter-spacing: .1em; text-transform: uppercase; }
+        .product-badge strong { display: block; margin-top: 3px; font: 700 15px/1 var(--cond); letter-spacing: .02em; }
+        .product-visual figcaption { position: absolute; right: 15px; bottom: 14px; color: var(--muted); font: 9px/1.3 monospace; letter-spacing: .08em; text-align: right; text-transform: uppercase; }
         .card {
             background: var(--card);
             border: 1px solid var(--line);
@@ -259,6 +268,7 @@
             .proof div + div { border-left: 0; border-top: 1px solid var(--line); }
             .field { flex-direction: column; }
             .actions .btn { width: 100%; }
+            .product-visual { margin: -8px -8px 24px; }
         }
     </style>
 </head>
@@ -319,6 +329,11 @@
             </div>
 
             <aside class="card" id="notify">
+                <figure class="product-visual" aria-label="Illustration of the Structure Lock steel joist brace">
+                    <div class="joist" aria-hidden="true"></div>
+                    <div class="product-badge">Product system<strong>Structure Lock</strong></div>
+                    <figcaption>Adjustable steel<br>joist bracing</figcaption>
+                </figure>
                 <div class="card-top">
                     <h2>Get notified at launch</h2>
                     <span class="pill"><i aria-hidden="true"></i> Coming soon</span>
